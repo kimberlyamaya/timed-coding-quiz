@@ -6,37 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- Add link to css file here -->
-    <link rel="stylesheet" href="sytles.css";
+    <link rel="stylesheet" href="./assets/css/styles.css";
 </head>
 <body>
     <header>
-        <div class="view-highscores-html">
+        <div class="view-highscores-link-container">
             <!-- create a new webpage to navigate to -->
-            <a href="/highscores.html">View high scores</a>
+            <a class="view-highscores-link" href="/highscores.html">View high scores</a>
         </div>
 
-        <div class="timer"> 
+        <div class="timer-container"> 
             <!-- placeholder, look up how to create a timer -->
+            <p class="timer">Time: 0</p>
         </div>
     </header>
 
     <main>
-        <h1>Coding Quiz Challenge</h1>
-        <p>
-            Try to answer the following code related questions within the time limit. <br>
-            Keep in mind that incorrect answers will penalize your score/time <br>
-            by ten seconds!
-        </p>
-        <button class="start-quiz" id="start-quiz" type="button">
-            Start Quiz
-        </button>
+        <div class="main-content-container">
+            <h1 class="main-header1">Coding Quiz Challenge</h1>
+            <p class="main-p">
+                Try to answer the following code related questions within the time limit.
+                Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+            </p>
+        </div>
+        <div class="start-quiz-btn-container">
+            <button class="start-quiz-btn" id="start-quiz-btn" type="button">
+                Start Quiz
+            </button>
+        </div>
     </main>
 
-    <footer>
-        <h5>Editor: Kimberly Amaya</h5>
-    </footer>
-
      <!-- Add link to script file here -->
-     <script src="script.js"></script>
+     <script src="./assets/js/script.js"></script>
 </body>
 </html>
