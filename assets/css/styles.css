@@ -23,10 +23,6 @@ header {
 }
 
 .main-content-container {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    flex-direction: column;
     margin: auto;
     text-align: center;
     width: 560px;
@@ -40,7 +36,8 @@ header {
 .start-quiz-btn-container {
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;   
+    flex-direction: column; 
 }
 
 .start-quiz-btn {
@@ -52,5 +49,18 @@ header {
 }
 
 .start-quiz-btn:hover{
+    background-color: lightsteelblue;
+}
+
+/* how to get my appended option-btns spaced out?? */
+.option-btn {
+    background-color: steelblue;
+    height: 40px;
+    width: 100px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.option-btn:hover{
     background-color: lightsteelblue;
 }
