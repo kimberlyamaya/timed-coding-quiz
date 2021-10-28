@@ -4,11 +4,11 @@ var startQuizBtnEl = document.querySelector("#start-quiz-btn");
 var questionEl = document.getElementById("main-header1");
 var mainPEl = document.getElementById("main-p");
 var buttonDivEl = document.querySelector("#start-quiz-btn-container");
+var timerStart = 90;
 
 
 // countdown function
 var countdown = function() {
-    var timerStart = 90;
 
     var timeInterval = setInterval(function() {
         timerEl.textContent = "Time: " + timerStart;
@@ -80,6 +80,7 @@ var appendOptionButtonsQuestion1 = function() {
     // minus 10 seconds from the timer
     // how to get current time?? then -10 seconds
     
+    timerStart = timerStart - 10;
     questionEl.innerHTML = "Which of the following would be used to ensure string value is converted to lower case?";
     // display a message in red text, incorrect
     // I need this to show up on the next question!!
