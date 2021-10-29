@@ -27,6 +27,7 @@ var yourInitialsInputForm = document.createElement("input");
 var submitScoreButtonEl = document.createElement("submit");
 var goBackBtnEl = document.querySelector("#go-back-btn");
 var clearHighScoresBtnEl = document.querySelector("#clear-high-scores");
+var gameOver = false;
 
 // countdown function
 var countdown = function() {
@@ -34,19 +35,16 @@ var countdown = function() {
     var timeInterval = setInterval(function() {
         timerEl.textContent = "Time: " + timerStart;
         timerStart--;
-    },1000)
 
     // need timer to stop at 0
-    if (--timer < 0) {
-        timer = 60;
-
+    if (timerStart < 0 || gameOver) {
+        
         clearInterval(timeInterval);
     }
 
-    return timeInterval;
+    },1000)
 
-    // need to return a value to pass to final score
-    
+   
 }
 
 // remove start quiz button function 
@@ -338,6 +336,9 @@ var updateOptionButtonsQuestion4 = function() {
 
 // all done page function
 var allDonePage = function() {
+
+    gameOver = true;
+
     questionEl.innerHTML = "All done!";
     // remove all buttons
     question4option1buttonEl.remove();
@@ -347,7 +348,10 @@ var allDonePage = function() {
 
     //assign the classs
     //yourFinalScoreP.className="";
-    yourFinalScoreP.textContent = "your final score is: " // + returned value from timer 
+    // if question4option2buttonEl.addEventListener("click", function() { then minus 10 from timer
+    // if question4option3buttonEl.addEventListener("click", function() { then minus 10 from timer
+    // if question4option4buttonEl.addEventListener("click", function() { then minus 10 from timer
+    yourFinalScoreP.textContent = "your final score is: " + timerStart
     buttonDivEl.appendChild(yourFinalScoreP);
 
     //asign the class
@@ -368,13 +372,13 @@ var allDonePage = function() {
 // submit scores function
 var submitScores = function() {
     submitScoreButtonEl.addEventListener("click", function() {
-        // trying to save my initials
-        localStorage.setItem("initials", yourInitials);
-        // will need to save current score too
-
-        // call the high score page
-        // in the high score page is where I will call the saved local storage info
-
+        var highScores = JSON.parse(localStorage.getItem("highscores"));
+            if (highScores === null) {
+                highScores = [ ]
+            }
+        var newHighScore = {initials: yourInitialsInputForm.value, score: timerStart}
+        highScores.push (newHighScore)
+        localStorage.setItem("highscores", JSON.stringify(highScores));
     })
 }
 
