@@ -21,6 +21,10 @@ var question4option1buttonEl = document.createElement("button");
 var question4option2buttonEl = document.createElement("button");
 var question4option3buttonEl = document.createElement("button");
 var question4option4buttonEl = document.createElement("button");    
+var yourFinalScoreP = document.createElement("p");
+var yourInitials = document.createElement("p");
+var yourInitialsInputForm = document.createElement("input");
+var submitScoreButtonEl = document.createElement("submit");
 
 
 // countdown function
@@ -31,7 +35,17 @@ var countdown = function() {
         timerStart--;
     },1000)
 
-    console.log(timerStart--);
+    // need timer to stop at 0
+    if (--timer < 0) {
+        timer = 60;
+
+        clearInterval(timeInterval);
+    }
+
+    return timeInterval;
+
+    // need to return a value to pass to final score
+    
 }
 
 // remove start quiz button function 
@@ -55,7 +69,7 @@ var incorrectAnswer = function() {
     buttonDivEl.appendChild(incorrectAnswerEl);
     setTimeout(function () {
         incorrectAnswerEl.style.display="none"
-    },2000);
+    },2000);  
 }
 
 // correct answer function
@@ -231,27 +245,27 @@ var updateOptionButtonsQuestion3 = function() {
     question3option1buttonEl.addEventListener("click", function() {
         // display a message in red text, incorrect
         // I need this to show up on the next question!!
-        incorrectAnswer();
         updateOptionButtonsQuestion4();
+        incorrectAnswer();
     })
 
 
     // onclick event for question 3 option2
     question3option2buttonEl.addEventListener("click", function() {
-        incorrectAnswer();
         updateOptionButtonsQuestion4();
+        incorrectAnswer();
     })
 
     // onclick event for question 3 option3
     question3option3buttonEl.addEventListener("click", function() {
-        incorrectAnswer();
         updateOptionButtonsQuestion4();
+        incorrectAnswer();
     })
 
     // onclick event for question 3 option4
     question3option4buttonEl.addEventListener("click", function() {
-        correctAnswer();
         updateOptionButtonsQuestion4();
+        correctAnswer();    
             
     })
 }; 
@@ -296,36 +310,75 @@ var updateOptionButtonsQuestion4 = function() {
     question4option1buttonEl.addEventListener("click", function() {
         // display a message in red text, incorrect
         // I need this to show up on the next question!!
+        allDonePage();
         correctAnswer();
-        // all done page
     })
 
 
     // onclick event for question 4 option2
     question4option2buttonEl.addEventListener("click", function() {
+        allDonePage();
         incorrectAnswer();
-        // all done page
     })
 
     // onclick event for question 4 option3
     question4option3buttonEl.addEventListener("click", function() {
+        allDonePage();
         incorrectAnswer();
-        // all done page
     })
 
     // onclick event for question 4 option4
     question4option4buttonEl.addEventListener("click", function() {
+        allDonePage();
         incorrectAnswer();
-        // all done page
             
     })
 }; 
 
+// all done page function
+var allDonePage = function() {
+    questionEl.innerHTML = "All done!";
+    // remove all buttons
+    question4option1buttonEl.remove();
+    question4option2buttonEl.remove();
+    question4option3buttonEl.remove();
+    question4option4buttonEl.remove();
 
+    //assign the classs
+    //yourFinalScoreP.className="";
+    yourFinalScoreP.textContent = "your final score is: " // + returned value from timer 
+    buttonDivEl.appendChild(yourFinalScoreP);
+
+    //asign the class
+    //yourinitials.className="";
+    yourInitials.textContent = "Enter intials:"
+    buttonDivEl.append(yourInitials, yourInitialsInputForm);
+
+    //assign the class
+    submitScoreButtonEl.className="option-btn";
+    submitScoreButtonEl.textContent="Submit"
+    buttonDivEl.appendChild(submitScoreButtonEl);
+
+    submitScores();
+
+
+}
+
+// submit scores function
+var submitScores = function() {
+    submitScoreButtonEl.addEventListener("click", function() {
+        // trying to save my initials
+        localStorage.setItem("initials", yourInitials);
+        // will need to save current score too
+
+        // call the high score page
+        // in the high score page is where I will call the saved local storage info
+
+    })
+}
 
 // onclick event for the start quiz button
 startQuizBtnEl.addEventListener("click", function() {
-
     // start the timer
     countdown();
     // dynamically change the HTML for var questionEl
