@@ -400,8 +400,3 @@ startQuizBtnEl.addEventListener("click", function() {
     appendOptionButtonsQuestion1(); 
 
 });
-
-
-
-
-
