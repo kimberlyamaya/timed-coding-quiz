@@ -28,6 +28,7 @@ var submitScoreButtonEl = document.createElement("submit");
 var goBackBtnEl = document.querySelector("#go-back-btn");
 var clearHighScoresBtnEl = document.querySelector("#clear-high-scores");
 var gameOver = false;
+var lastQuestionIncorrect = false;
 
 // countdown function
 var countdown = function() {
@@ -83,6 +84,8 @@ var correctAnswer = function() {
         correctAnswerEl.style.display="none"
     },2000);
 }
+
+
 
 // append options function to question1
 var appendOptionButtonsQuestion1 = function() {
@@ -273,6 +276,8 @@ var updateOptionButtonsQuestion3 = function() {
 // question 4 and options dynamically change function
 var updateOptionButtonsQuestion4 = function() {
 
+    debugger;
+
     // dynamically change Question
     questionEl.innerHTML = "When iteratng through an array, what number is the first value?";
 
@@ -309,33 +314,46 @@ var updateOptionButtonsQuestion4 = function() {
     question4option1buttonEl.addEventListener("click", function() {
         // display a message in red text, incorrect
         // I need this to show up on the next question!!
+        debugger;
         allDonePage();
-        correctAnswer();
     })
 
 
     // onclick event for question 4 option2
     question4option2buttonEl.addEventListener("click", function() {
+        lastQuestionIncorrect = true;
         allDonePage();
-        incorrectAnswer();
     })
 
     // onclick event for question 4 option3
     question4option3buttonEl.addEventListener("click", function() {
+        lastQuestionIncorrect = true;
         allDonePage();
-        incorrectAnswer();
+       
     })
 
     // onclick event for question 4 option4
     question4option4buttonEl.addEventListener("click", function() {
+        lastQuestionIncorrect = true;
         allDonePage();
-        incorrectAnswer();
+        
             
     })
 }; 
 
 // all done page function
 var allDonePage = function() {
+
+    debugger;
+
+    // if last question is incorrect, -10 from timer
+    if (lastQuestionIncorrect = true) {
+        timerStart = timerStart - 10;
+        setTimeout(function () {
+            incorrectAnswerEl.style.display="none"
+        },2000);
+    }
+
 
     gameOver = true;
 
@@ -351,6 +369,7 @@ var allDonePage = function() {
     // if question4option2buttonEl.addEventListener("click", function() { then minus 10 from timer
     // if question4option3buttonEl.addEventListener("click", function() { then minus 10 from timer
     // if question4option4buttonEl.addEventListener("click", function() { then minus 10 from timer
+
     yourFinalScoreP.textContent = "your final score is: " + timerStart
     buttonDivEl.appendChild(yourFinalScoreP);
 
@@ -364,6 +383,24 @@ var allDonePage = function() {
     submitScoreButtonEl.textContent="Submit"
     buttonDivEl.appendChild(submitScoreButtonEl);
 
+    // need incorrect/correct answser to be appended here
+    if (lastQuestionIncorrect = true) {
+        var incorrectAnswerEl = document.createElement("p");  
+        // create this class in CSS
+        // make text red and italized
+        incorrectAnswerEl.className = "incorrect-answer-p"
+        incorrectAnswerEl.textContent = "Incorrect"
+        buttonDivEl.appendChild(incorrectAnswerEl);
+    } else {
+        var correctAnswerEl = document.createElement("p");
+        //create this class in CSS
+        // make it green
+        correctAnswerEl.className = "correct-answer-p"
+        correctAnswerEl.textContent = "Correct"
+        buttonDivEl.append(correctAnswerEl);
+    }
+
+    debugger;
     submitScores();
 
 
@@ -371,7 +408,11 @@ var allDonePage = function() {
 
 // submit scores function
 var submitScores = function() {
+    debugger;
     submitScoreButtonEl.addEventListener("click", function() {
+        if (yourInitialsInputForm.value === "") {
+            alert("please enter your initials");
+        } else {
         var highScores = JSON.parse(localStorage.getItem("highscores"));
             if (highScores === null) {
                 highScores = [ ]
@@ -379,8 +420,12 @@ var submitScores = function() {
         var newHighScore = {initials: yourInitialsInputForm.value, score: timerStart}
         highScores.push (newHighScore)
         localStorage.setItem("highscores", JSON.stringify(highScores));
+
+        // go to highscores page
+        window.location.href="https://kimberlyamaya.github.io/timed-coding-quiz/highscores.html"
+        };
     })
-}
+};
 
 // on click event for go back btn
 
