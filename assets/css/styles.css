@@ -64,3 +64,33 @@ header {
 .option-btn:hover{
     background-color: lightsteelblue;
 }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+.go-back-btn {
+    background-color: steelblue;
+    height: 40px;
+    width: 100px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.go-back-btn:hover{
+    background-color: lightsteelblue;
+}
+
+.clear-high-scores {
+    background-color: steelblue;
+    height: 40px;
+    width: 100px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.clear-high-scores:hover{
+    background-color: lightsteelblue;
+}

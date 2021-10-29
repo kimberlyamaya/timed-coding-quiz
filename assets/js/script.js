@@ -379,7 +379,7 @@ var submitScores = function() {
 
 // onclick event for the start quiz button
 startQuizBtnEl.addEventListener("click", function() {
-    // start the timer
+    // start the timer  
     countdown();
     // dynamically change the HTML for var questionEl
     questionEl.innerHTML = "Which of the following is <u>NOT</u> considered a JavaScript Data Type?";
