@@ -25,7 +25,8 @@ var yourFinalScoreP = document.createElement("p");
 var yourInitials = document.createElement("p");
 var yourInitialsInputForm = document.createElement("input");
 var submitScoreButtonEl = document.createElement("submit");
-
+var goBackBtnEl = document.querySelector("#go-back-btn");
+var clearHighScoresBtnEl = document.querySelector("#clear-high-scores");
 
 // countdown function
 var countdown = function() {
@@ -376,6 +377,14 @@ var submitScores = function() {
 
     })
 }
+
+// on click event for go back btn
+
+//goBackBtnEl
+
+// on click event for clear high scores btn
+
+//clearHighScoresBtnEl
 
 // onclick event for the start quiz button
 startQuizBtnEl.addEventListener("click", function() {
