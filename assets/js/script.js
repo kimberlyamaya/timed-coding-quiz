@@ -25,10 +25,11 @@ var yourFinalScoreP = document.createElement("p");
 var yourInitials = document.createElement("p");
 var yourInitialsInputForm = document.createElement("input");
 var submitScoreButtonEl = document.createElement("submit");
-var goBackBtnEl = document.querySelector("#go-back-btn");
-var clearHighScoresBtnEl = document.querySelector("#clear-high-scores");
 var gameOver = false;
-var lastQuestionIncorrect = false;
+var lastQuestionOption1 = false;
+var lastQuestionOption2 = false;
+var lastQuestionOption3 = false;
+var lastQuestionOption4 = false;
 
 // countdown function
 var countdown = function() {
@@ -276,8 +277,6 @@ var updateOptionButtonsQuestion3 = function() {
 // question 4 and options dynamically change function
 var updateOptionButtonsQuestion4 = function() {
 
-    debugger;
-
     // dynamically change Question
     questionEl.innerHTML = "When iteratng through an array, what number is the first value?";
 
@@ -309,32 +308,30 @@ var updateOptionButtonsQuestion4 = function() {
     // remove question3 option4 button el
     question3option4buttonEl.remove();
 
-
     // onclick event for question 4 option1
     question4option1buttonEl.addEventListener("click", function() {
         // display a message in red text, incorrect
         // I need this to show up on the next question!!
-        debugger;
+        lastQuestionOption1 = true;
         allDonePage();
     })
 
 
     // onclick event for question 4 option2
     question4option2buttonEl.addEventListener("click", function() {
-        lastQuestionIncorrect = true;
+        debugger;
+        lastQuestionOption2 = true;
         allDonePage();
     })
 
     // onclick event for question 4 option3
     question4option3buttonEl.addEventListener("click", function() {
-        lastQuestionIncorrect = true;
         allDonePage();
        
     })
 
     // onclick event for question 4 option4
     question4option4buttonEl.addEventListener("click", function() {
-        lastQuestionIncorrect = true;
         allDonePage();
         
             
@@ -344,10 +341,8 @@ var updateOptionButtonsQuestion4 = function() {
 // all done page function
 var allDonePage = function() {
 
-    debugger;
-
     // if last question is incorrect, -10 from timer
-    if (lastQuestionIncorrect = true) {
+    if (lastQuestionOption2 = true) {
         timerStart = timerStart - 10;
         setTimeout(function () {
             incorrectAnswerEl.style.display="none"
@@ -384,14 +379,8 @@ var allDonePage = function() {
     buttonDivEl.appendChild(submitScoreButtonEl);
 
     // need incorrect/correct answser to be appended here
-    if (lastQuestionIncorrect = true) {
-        var incorrectAnswerEl = document.createElement("p");  
-        // create this class in CSS
-        // make text red and italized
-        incorrectAnswerEl.className = "incorrect-answer-p"
-        incorrectAnswerEl.textContent = "Incorrect"
-        buttonDivEl.appendChild(incorrectAnswerEl);
-    } else {
+    
+    if (lastQuestionOption1 = true) {
         var correctAnswerEl = document.createElement("p");
         //create this class in CSS
         // make it green
@@ -399,8 +388,15 @@ var allDonePage = function() {
         correctAnswerEl.textContent = "Correct"
         buttonDivEl.append(correctAnswerEl);
     }
+    else if (lastQuestionOption2 = true) {
+        var incorrectAnswerEl = document.createElement("p");  
+        // create this class in CSS
+        // make text red and italized
+        incorrectAnswerEl.className = "incorrect-answer-p"
+        incorrectAnswerEl.textContent = "Incorrect"
+        buttonDivEl.appendChild(incorrectAnswerEl);
+        }
 
-    debugger;
     submitScores();
 
 
@@ -408,7 +404,6 @@ var allDonePage = function() {
 
 // submit scores function
 var submitScores = function() {
-    debugger;
     submitScoreButtonEl.addEventListener("click", function() {
         if (yourInitialsInputForm.value === "") {
             alert("please enter your initials");
@@ -422,14 +417,11 @@ var submitScores = function() {
         localStorage.setItem("highscores", JSON.stringify(highScores));
 
         // go to highscores page
-        window.location.href="https://kimberlyamaya.github.io/timed-coding-quiz/highscores.html"
+        window.location.href="file:///C:/Users/kkimbell/UCDMain/timed-coding-quiz/highscores.html"
         };
     })
 };
 
-// on click event for go back btn
-
-//goBackBtnEl
 
 // on click event for clear high scores btn
 
