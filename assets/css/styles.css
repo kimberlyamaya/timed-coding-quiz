@@ -122,3 +122,15 @@ header {
 .list-of-high-scores {
     padding: 5px;
 }
+
+
+@media screen and (max-width: 980px) {
+    .main-content-container {   
+        padding: 0px;
+
+    }
+
+    header {
+        padding: 0px;
+    }
+}
