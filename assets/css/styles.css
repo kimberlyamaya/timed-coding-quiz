@@ -94,3 +94,15 @@ header {
 .clear-high-scores:hover{
     background-color: lightsteelblue;
 }
+
+.question3-option-btn {
+    background-color: steelblue;
+    height: 40px;
+    width: 150px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.question3-option-btn:hover{
+    background-color: lightsteelblue;
+}

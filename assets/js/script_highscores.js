@@ -13,6 +13,7 @@ goBackBtnEl.addEventListener("click", function() {
 
 clearHighScoresBtnEl.addEventListener("click", function() {
     localStorage.clear();
+    //clear the list from the page
 })
 
 // took this from script.js

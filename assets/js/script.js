@@ -24,7 +24,7 @@ var question4option4buttonEl = document.createElement("button");
 var yourFinalScoreP = document.createElement("p");
 var yourInitials = document.createElement("p");
 var yourInitialsInputForm = document.createElement("input");
-var submitScoreButtonEl = document.createElement("submit");
+var submitScoreButtonEl = document.createElement("button");
 var gameOver = false;
 var lastQuestionOption1 = false;
 var lastQuestionOption2 = false;
@@ -66,7 +66,7 @@ var incorrectAnswer = function() {
     // create this class in CSS
     // make text red and italized
     incorrectAnswerEl.className = "incorrect-answer-p"
-    incorrectAnswerEl.textContent = "Incorrect"
+    incorrectAnswerEl.textContent = "Incorrect!"
     buttonDivEl.appendChild(incorrectAnswerEl);
     setTimeout(function () {
         incorrectAnswerEl.style.display="none"
@@ -79,7 +79,7 @@ var correctAnswer = function() {
     //create this class in CSS
     // make it green
     correctAnswerEl.className = "correct-answer-p"
-    correctAnswerEl.textContent = "Correct"
+    correctAnswerEl.textContent = "Correct!"
     buttonDivEl.append(correctAnswerEl);
     setTimeout(function () {
         correctAnswerEl.style.display="none"
@@ -217,28 +217,28 @@ var updateOptionButtonsQuestion3 = function() {
 
     // question 3 button option1
     question3option1buttonEl.textContent = "run timerCountdown";
-    question3option1buttonEl.className = "option-btn";
+    question3option1buttonEl.className = "question3-option-btn";
     buttonDivEl.appendChild(question3option1buttonEl);
     // remove question2 option1 button el
     question2option1buttonEl.remove();
 
     // question 3 button option2
     question3option2buttonEl.textContent = "call timerCountdown";
-    question3option2buttonEl.className = "option-btn";
+    question3option2buttonEl.className = "question3-option-btn";
     buttonDivEl.appendChild(question3option2buttonEl);
     // remove question2 option2 button el
     question2option2buttonEl.remove();
 
     // question 3 button option3
     question3option3buttonEl.textContent = "run timerCountdown()";
-    question3option3buttonEl.className = "option-btn";
+    question3option3buttonEl.className = "question3-option-btn";
     buttonDivEl.appendChild(question3option3buttonEl);
     // remove question2 option3 button el
     question2option3buttonEl.remove();
 
     // question 3 button option4
     question3option4buttonEl.textContent = "timerCountdown()";
-    question3option4buttonEl.className = "option-btn";
+    question3option4buttonEl.className = "question3-option-btn";
     buttonDivEl.appendChild(question3option4buttonEl);
     // remove question2 option4 button el
     question2option4buttonEl.remove();
@@ -385,7 +385,7 @@ var allDonePage = function() {
         //create this class in CSS
         // make it green
         correctAnswerEl.className = "correct-answer-p"
-        correctAnswerEl.textContent = "Correct"
+        correctAnswerEl.textContent = "Correct!"
         buttonDivEl.append(correctAnswerEl);
     }
     else if (lastQuestionOption2 = true) {
@@ -393,7 +393,7 @@ var allDonePage = function() {
         // create this class in CSS
         // make text red and italized
         incorrectAnswerEl.className = "incorrect-answer-p"
-        incorrectAnswerEl.textContent = "Incorrect"
+        incorrectAnswerEl.textContent = "Incorrect!"
         buttonDivEl.appendChild(incorrectAnswerEl);
         }
 

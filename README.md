@@ -1,13 +1,27 @@
 # timed-coding-quiz
 
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
+**Description**
+
+This is a timed coding quiz. The user will be presented with a total of 4 questions to complete in 6o seconds. When an incorrect answer is chosen 10 seconds will be deducted from the timer. When all questions are answered the user will see their final score and be able to enter their initials and submit their high score. If the questions are not completed in the 60 seconds you will be taken to the all done screen to enter your initials, but your score will be 0. 
+
+**Website Layout**
+
+This is the main screen, the starting point
+![Timed-Coding-Quiz-Main-Screen](assets/images/kimsMainScreen.PNG)
+
+This is the first question, at this point the timer has started
+![Timed-Coding-Quiz-First-Question](assets/images/kimsFirstQuestion.PNG)
+
+At the end of the quiz, the final score is presented, the user has the chance to enter their initials and submit them to the highscores board
+![Timed-Coding-Quiz-All-Done](assets/images/kimsAllDoneScreen.PNG)
+
+This is the high scores board  
+/*here goes the picture of the scores board, once I get it to actually display the info*/
+
+**Website Link**
+
+https://kimberlyamaya.github.io/timed-coding-quiz/
+
+**Editors**
+
+Kimberly Amaya
