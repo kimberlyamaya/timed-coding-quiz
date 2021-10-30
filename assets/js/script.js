@@ -368,7 +368,6 @@ var allDonePage = function() {
     gameOver = true;
 
     questionEl.innerHTML = "All done!";
-    debugger;
     yourFinalScoreP.textContent = "your final score is: " + timerStart
     buttonDivEl.appendChild(yourFinalScoreP);
 

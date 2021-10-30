@@ -16,7 +16,7 @@ At the end of the quiz, the final score is presented, the user has the chance to
 ![Timed-Coding-Quiz-All-Done](assets/images/kimsAllDoneScreen.PNG)
 
 This is the high scores board  
-/*here goes the picture of the scores board, once I get it to actually display the info*/
+![Timed-Coding-Quiz-High-Scores](assets/images/kimsHighScoresPage.PNG)
 
 **Website Link**
 

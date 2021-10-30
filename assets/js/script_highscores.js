@@ -35,7 +35,8 @@ for (var i = 0; i < highScores.length; i++) {
     console.log(highScores[i]);
 
     var li = document.createElement("li");
-        li.innerText = highScores[i].initials + " " + highScores[i].score;
+        li.innerText = highScores[i].initials + " - " + highScores[i].score;
+        li.className = "list-of-high-scores";
         highScoresListEl.appendChild(li);
     //document.getElementById("high-scores-li").innerHTML = highScores[i].initials;
 
