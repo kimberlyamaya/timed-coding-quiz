@@ -298,7 +298,7 @@ var updateOptionButtonsQuestion4 = function() {
     buttonDivEl.innerHTML = "";
 
     // dynamically change Question
-    questionEl.innerHTML = "When iteratng through an array, what number is the first value?";
+    questionEl.innerHTML = "When iterating through an array, what number is the first value?";
 
     // question 4 button option1
     question4option1buttonEl.textContent = "0";
