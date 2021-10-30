@@ -403,7 +403,7 @@ var submitScores = function() {
         localStorage.setItem("highscores", JSON.stringify(highScores));
 
         // go to highscores page
-        window.location.href="file:///C:/Users/kkimbell/UCDMain/timed-coding-quiz/highscores.html"
+        window.location.href="https://kimberlyamaya.github.io/timed-coding-quiz/highscores.html"
         };
     })
 };

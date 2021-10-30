@@ -8,7 +8,7 @@ var timerStart = 60;
 
 // on click event for go back btn
 goBackBtnEl.addEventListener("click", function() {
-    window.location.href="file:///C:/Users/kkimbell/UCDMain/timed-coding-quiz/index.html"
+    window.location.href="https://kimberlyamaya.github.io/timed-coding-quiz/index.html"
 })
 
 clearHighScoresBtnEl.addEventListener("click", function() {
