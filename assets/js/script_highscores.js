@@ -13,6 +13,7 @@ goBackBtnEl.addEventListener("click", function() {
 
 clearHighScoresBtnEl.addEventListener("click", function() {
     localStorage.clear();
+    highScoresListEl.innerHTML = "";
     //clear the list from the page
 })
 
@@ -22,18 +23,21 @@ var highScores = JSON.parse(localStorage.getItem("highscores"));
             if (highScores === null) {
                 highScores = [ ]
             }
-        var newHighScore = {initials: yourInitialsInputForm.value, score: timerStart}
+        /*var newHighScore = {initials: yourInitialsInputForm.value, score: timerStart}
         highScores.push (newHighScore)
-        localStorage.setItem("highscores", JSON.stringify(highScores));
+        localStorage.setItem("highscores", JSON.stringify(highScores));*/
 
 console.log(highScores);
 
 // how to iterate through array and display on the screen??
 
 for (var i = 0; i < highScores.length; i++) {
-    //console.log(highScores[i]);
+    console.log(highScores[i]);
 
-    document.getElementById("high-scores-li").innerHTML = highScores.initials;
+    var li = document.createElement("li");
+        li.innerText = highScores[i].initials + " " + highScores[i].score;
+        highScoresListEl.appendChild(li);
+    //document.getElementById("high-scores-li").innerHTML = highScores[i].initials;
 
     /*initialDisplay.textContent = highScores.initials;
     //initialDisplay = highScores.initials;
@@ -42,8 +46,6 @@ for (var i = 0; i < highScores.length; i++) {
     highScoresListEl.appendChild(initialDisplay);*/
 
     /*highScores.forEach((item)=>{
-        var li = document.createElement("li");
-        li.innerText = item;
-        highScoresListEl.appendChild(li);
+        
     });*/
 }

@@ -35,13 +35,21 @@ var lastQuestionOption4 = false;
 var countdown = function() {
 
     var timeInterval = setInterval(function() {
+        if (timerStart > 0) {
         timerEl.textContent = "Time: " + timerStart;
+        yourFinalScoreP.textContent = "your final score is: " + timerStart
         timerStart--;
+        } else {
+            timerEl.textContent = "Time: " + timerStart;
+        };
 
     // need timer to stop at 0
-    if (timerStart < 0 || gameOver) {
+    if (timerStart <= 0 || gameOver) {
         
         clearInterval(timeInterval);
+        if (gameOver === false) {
+        allDonePage();
+        }
     }
 
     },1000)
@@ -61,7 +69,11 @@ var emptyPEl  = function() {
 
 // incorrect answer function
 var incorrectAnswer = function() {
+    if (timerStart >= 10) {
     timerStart = timerStart - 10;
+    } else {
+        timerStart = 0;
+    }
     var incorrectAnswerEl = document.createElement("p");  
     // create this class in CSS
     // make text red and italized
@@ -70,7 +82,7 @@ var incorrectAnswer = function() {
     buttonDivEl.appendChild(incorrectAnswerEl);
     setTimeout(function () {
         incorrectAnswerEl.style.display="none"
-    },2000);  
+    },1200);  
 }
 
 // correct answer function
@@ -83,13 +95,15 @@ var correctAnswer = function() {
     buttonDivEl.append(correctAnswerEl);
     setTimeout(function () {
         correctAnswerEl.style.display="none"
-    },2000);
+    },1200);
 }
 
 
 
 // append options function to question1
 var appendOptionButtonsQuestion1 = function() {
+
+    buttonDivEl.innerHTML = ""; 
     
     // question 1 button option1
     question1option1buttonEl.textContent = "Number";
@@ -147,6 +161,8 @@ var appendOptionButtonsQuestion1 = function() {
 // question 2 and options dynamically change function
 var updateOptionButtonsQuestion2 = function() {
 
+    buttonDivEl.innerHTML = "";
+
     // dynamically change Question
     questionEl.innerHTML = "Which of the following would be used to convert a string to lower case?";
 
@@ -155,28 +171,28 @@ var updateOptionButtonsQuestion2 = function() {
     question2option1buttonEl.className = "option-btn";
     buttonDivEl.appendChild(question2option1buttonEl);
     // remove question1 option1 button el
-    question1option1buttonEl.remove();
+    //question1option1buttonEl.remove();
 
     // question 2 button option2
     question2option2buttonEl.textContent = "toUpperCase";
     question2option2buttonEl.className = "option-btn";
     buttonDivEl.appendChild(question2option2buttonEl);
     // remove question1 option2 button el
-    question1option2buttonEl.remove();
+    //question1option2buttonEl.remove();
 
     // question 2 button option3
     question2option3buttonEl.textContent = "toString";
     question2option3buttonEl.className = "option-btn";
     buttonDivEl.appendChild(question2option3buttonEl);
     // remove question1 option3 button el
-    question1option3buttonEl.remove();
+    //question1option3buttonEl.remove();
 
     // question 2 button option4
     question2option4buttonEl.textContent = "startsWith";
     question2option4buttonEl.className = "option-btn";
     buttonDivEl.appendChild(question2option4buttonEl);
     // remove question1 option4 button el
-    question1option4buttonEl.remove();
+    //question1option4buttonEl.remove();
 
 
     // onclick event for question 2 option1
@@ -212,6 +228,8 @@ var updateOptionButtonsQuestion2 = function() {
 // question 3 and options dynamically change function
 var updateOptionButtonsQuestion3 = function() {
 
+    buttonDivEl.innerHTML = "";
+
     // dynamically change Question
     questionEl.innerHTML = "How would you call or run the function named timerCountdown?";
 
@@ -220,28 +238,28 @@ var updateOptionButtonsQuestion3 = function() {
     question3option1buttonEl.className = "question3-option-btn";
     buttonDivEl.appendChild(question3option1buttonEl);
     // remove question2 option1 button el
-    question2option1buttonEl.remove();
+    //question2option1buttonEl.remove();
 
     // question 3 button option2
     question3option2buttonEl.textContent = "call timerCountdown";
     question3option2buttonEl.className = "question3-option-btn";
     buttonDivEl.appendChild(question3option2buttonEl);
     // remove question2 option2 button el
-    question2option2buttonEl.remove();
+    //question2option2buttonEl.remove();
 
     // question 3 button option3
     question3option3buttonEl.textContent = "run timerCountdown()";
     question3option3buttonEl.className = "question3-option-btn";
     buttonDivEl.appendChild(question3option3buttonEl);
     // remove question2 option3 button el
-    question2option3buttonEl.remove();
+    //question2option3buttonEl.remove();
 
     // question 3 button option4
     question3option4buttonEl.textContent = "timerCountdown()";
     question3option4buttonEl.className = "question3-option-btn";
     buttonDivEl.appendChild(question3option4buttonEl);
     // remove question2 option4 button el
-    question2option4buttonEl.remove();
+    //question2option4buttonEl.remove();
 
 
     // onclick event for question 3 option1
@@ -277,6 +295,8 @@ var updateOptionButtonsQuestion3 = function() {
 // question 4 and options dynamically change function
 var updateOptionButtonsQuestion4 = function() {
 
+    buttonDivEl.innerHTML = "";
+
     // dynamically change Question
     questionEl.innerHTML = "When iteratng through an array, what number is the first value?";
 
@@ -285,54 +305,55 @@ var updateOptionButtonsQuestion4 = function() {
     question4option1buttonEl.className = "option-btn";
     buttonDivEl.appendChild(question4option1buttonEl);
     // remove question2 option1 button el
-    question3option1buttonEl.remove();
+    //question3option1buttonEl.remove();
 
     // question 4 button option2
     question4option2buttonEl.textContent = "1";
     question4option2buttonEl.className = "option-btn";
     buttonDivEl.appendChild(question4option2buttonEl);
     // remove question3 option2 button el
-    question3option2buttonEl.remove();
+    //question3option2buttonEl.remove();
 
     // question 4 button option3
     question4option3buttonEl.textContent = "2";
     question4option3buttonEl.className = "option-btn";
     buttonDivEl.appendChild(question4option3buttonEl);
     // remove question3 option3 button el
-    question3option3buttonEl.remove();
+    //question3option3buttonEl.remove();
 
     // question 4 button option4
     question4option4buttonEl.textContent = "3";
     question4option4buttonEl.className = "option-btn";
     buttonDivEl.appendChild(question4option4buttonEl);
     // remove question3 option4 button el
-    question3option4buttonEl.remove();
+    //question3option4buttonEl.remove();
 
     // onclick event for question 4 option1
     question4option1buttonEl.addEventListener("click", function() {
         // display a message in red text, incorrect
         // I need this to show up on the next question!!
-        lastQuestionOption1 = true;
         allDonePage();
+        correctAnswer();
     })
 
 
     // onclick event for question 4 option2
     question4option2buttonEl.addEventListener("click", function() {
-        debugger;
-        lastQuestionOption2 = true;
         allDonePage();
+        incorrectAnswer();
     })
 
     // onclick event for question 4 option3
     question4option3buttonEl.addEventListener("click", function() {
         allDonePage();
+        incorrectAnswer();
        
     })
 
     // onclick event for question 4 option4
     question4option4buttonEl.addEventListener("click", function() {
         allDonePage();
+        incorrectAnswer();
         
             
     })
@@ -341,30 +362,13 @@ var updateOptionButtonsQuestion4 = function() {
 // all done page function
 var allDonePage = function() {
 
-    // if last question is incorrect, -10 from timer
-    if (lastQuestionOption2 = true) {
-        timerStart = timerStart - 10;
-        setTimeout(function () {
-            incorrectAnswerEl.style.display="none"
-        },2000);
-    }
+    buttonDivEl.innerHTML = "";
 
-
+    
     gameOver = true;
 
     questionEl.innerHTML = "All done!";
-    // remove all buttons
-    question4option1buttonEl.remove();
-    question4option2buttonEl.remove();
-    question4option3buttonEl.remove();
-    question4option4buttonEl.remove();
-
-    //assign the classs
-    //yourFinalScoreP.className="";
-    // if question4option2buttonEl.addEventListener("click", function() { then minus 10 from timer
-    // if question4option3buttonEl.addEventListener("click", function() { then minus 10 from timer
-    // if question4option4buttonEl.addEventListener("click", function() { then minus 10 from timer
-
+    debugger;
     yourFinalScoreP.textContent = "your final score is: " + timerStart
     buttonDivEl.appendChild(yourFinalScoreP);
 
@@ -378,25 +382,6 @@ var allDonePage = function() {
     submitScoreButtonEl.textContent="Submit"
     buttonDivEl.appendChild(submitScoreButtonEl);
 
-    // need incorrect/correct answser to be appended here
-    
-    if (lastQuestionOption1 = true) {
-        var correctAnswerEl = document.createElement("p");
-        //create this class in CSS
-        // make it green
-        correctAnswerEl.className = "correct-answer-p"
-        correctAnswerEl.textContent = "Correct!"
-        buttonDivEl.append(correctAnswerEl);
-    }
-    else if (lastQuestionOption2 = true) {
-        var incorrectAnswerEl = document.createElement("p");  
-        // create this class in CSS
-        // make text red and italized
-        incorrectAnswerEl.className = "incorrect-answer-p"
-        incorrectAnswerEl.textContent = "Incorrect!"
-        buttonDivEl.appendChild(incorrectAnswerEl);
-        }
-
     submitScores();
 
 
@@ -404,7 +389,9 @@ var allDonePage = function() {
 
 // submit scores function
 var submitScores = function() {
-    submitScoreButtonEl.addEventListener("click", function() {
+    submitScoreButtonEl.addEventListener("click", function(e) {
+        e.preventDefault();
+        //console.log("twice")
         if (yourInitialsInputForm.value === "") {
             alert("please enter your initials");
         } else {
